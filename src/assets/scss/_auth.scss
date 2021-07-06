@@ -1,0 +1,67 @@
+@import 'mixin.scss';
+@import 'variables.scss';
+// Authentication
+.auth {
+  padding: 1.5rem;
+  background-color: $white-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  @include flexDisplay;
+  &-image {
+    margin-right: 1rem;
+    img {
+      width: 100%;
+    }
+    @media only screen and (max-width: 885px) {
+      display: none;
+    }
+  }
+  &-form {
+    &-extra {
+      margin-top: 2rem;
+      color: $grey-color2;
+      &:hover {
+        color: $grey-color1;
+      }
+    }
+  }
+}
+
+// Auth Form
+form {
+  .form-heading {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .form-area {
+    .form-field {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-radius: $border-radius;
+      border: 1px solid $grey-color1;
+      padding: 0.8rem;
+      @include transition(0.2s);
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+      &:hover {
+        border: 1px solid $grey-color2;
+      }
+      input {
+        width: 100%;
+        font-size: 16px;
+        border: none;
+        outline: none;
+      }
+    }
+    .form-btn {
+      @include flexDisplay;
+      justify-content: space-between;
+      margin-top: 2rem;
+      .btn {
+        font-size: 16px;
+      }
+    }
+  }
+}

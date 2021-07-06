@@ -1,0 +1,126 @@
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variables';
+
+/* SPECIAL SECTION */
+.special {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  @media only screen and (max-width: 745px) {
+    display: grid;
+    grid-gap: 2rem;
+  }
+  &-orders {
+    flex-basis: 30%;
+    &-heading {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      p {
+        color: $primary-color
+      }
+    }
+    &-list {
+      .special-orders-item {
+        @include flexDisplay;
+        padding: 1rem;
+        @include transition(0.2s);
+        &:hover {
+          background-color: $light-color;
+        }
+        &-image {
+          margin-right: 1rem;
+          width: 5em;
+          height: 5em;
+          background-color: $grey-color1;
+          border-radius: 20px;
+          background-size: cover;
+        }
+        &-details {
+          & p:nth-child(1) {
+            color: $primary-color;
+          }
+          & p:nth-child(2) {
+            margin: 10px 0;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  &-slide {
+    flex-basis: 65.5%;
+    position: relative;
+    .slide-logo {
+      position: absolute;
+      right: 2%;
+      top: 2%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      z-index: 20;
+    }
+    .slideshow-container {
+      width: 100%;
+      position: relative;
+      .slide-item {
+        &:not(:first-child) {
+          display: none;
+        }
+        /* Fading animation */
+        &.fade {
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        img {
+          width: 100%;
+          // height: 450px;
+          height: 70vh;
+          filter: brightness(0.6);
+          @media only screen and (max-width: 885px) {
+            height: 50vh;
+          }
+        }
+        &-text {
+          position: absolute;
+          top: 50%;
+          left: 4em;
+          width: 60%;
+          transform: translateY(-50%);
+          z-index: 10;
+          color: $white-color;
+          p:first-child {
+            color: $primary-color;
+            text-transform: uppercase;
+          }
+          h2 {
+            margin: 1rem 0;
+            // font-size: 2.5rem;
+            font-size: clamp(1rem, -0.4026rem + 6.2338vw, 2.5rem);
+          }
+        }
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active {
+        background-color: #717171;
+      }
+    }
+
+    // Keyframes
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+  }
+}

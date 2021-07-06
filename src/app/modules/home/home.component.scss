@@ -1,0 +1,73 @@
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variables';
+
+/* BANNER SECTION */
+.banner {
+  @include flexDisplay;
+  padding-left: 0;
+  padding-right: 0;
+  @include mobileGrid;
+  &_category {
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    flex-basis: 50%;
+    display: flex;
+    & a {
+      padding: 15px 40px;
+      background-color: $white-color;
+      border-radius: 50px;
+      border: 2px solid $primary-color;
+      box-shadow: $box-shadow;
+      text-align: left;
+      margin: auto;
+      transition: 0.3s background-color ease;
+      &:hover {
+        color: $white-color;
+        background-color: $primary-color;
+      }
+    }
+    &.merchant {
+      background-image: url("https://res.cloudinary.com/djnqxvljr/image/upload/v1613735684/perlfood/assets/79_gp9kbd.jpg");
+    }
+    &.delivery {
+      background-image: url("https://res.cloudinary.com/djnqxvljr/image/upload/v1613735684/perlfood/assets/80_hvpd2x.jpg");
+    }
+  }
+}
+
+/* WHY US */
+.why-us {
+  background-color: $light-color2;
+  &-heading {
+    @include sectHeading;
+  }
+  &-body {
+    display: grid;
+    grid-gap: 1rem;
+    @media only screen and (min-width: 885px) {
+      grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
+    }
+    .why-us-item {
+      @include flexDisplay;
+      justify-content: space-between;
+      background-color: $white-color;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      padding: 1rem;
+      h4 {
+        color: $grey-color2;
+        margin-bottom: 0.5rem;
+      }
+      img {
+        max-width: 150px;
+        max-height: 150px;
+        @media only screen and (max-width: 667px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+

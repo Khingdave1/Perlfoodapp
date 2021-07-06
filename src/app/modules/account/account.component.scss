@@ -1,0 +1,143 @@
+@import '../../../assets/scss/mixin';
+@import '../../../assets/scss/variables';
+
+/*/---- Sidenav starts ----/*/
+// Style is in _control-panel.scss
+/*/---- Sidenav ends ----/*/
+
+/*/---- Main start ----/*/
+.account-container {
+  .account-banner {
+    @include white-background;
+    padding-bottom: 1rem;
+    &-bg {
+      .cover-image {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://res.cloudinary.com/djnqxvljr/image/upload/v1613735662/12_plfw91.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 250px;
+        width: 100%;
+        h2 {
+          font-size: 2rem;
+          color: $white-color;
+          padding: 5rem 0 0 3rem;
+          font-weight: 500;
+        }
+      }
+    }
+    &-info {
+      padding: 1rem;
+      padding-bottom: 0.5rem;
+      @media only screen and (min-width: 585px) {
+          display: flex;
+          align-items: center;
+      }
+      &-image {
+          max-width: 100px;
+          margin-top: -40px;
+          margin-right: 20px;
+          cursor: pointer;
+          .profile-image {
+              width: 100%;
+              border-radius: 50%;
+          }
+      }
+      &-details {
+        color: #000;
+        @media only screen and (min-width: 585px) {
+          display: flex;
+          align-items: center;
+        }
+        h4 {
+          font-size: 1.340rem;
+          font-weight: 500;
+          margin-bottom: 0.3rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+        .profile-name {
+          margin-right: 2rem;
+          h4 {
+            color: $primary-color;
+          }
+          @media only screen and (max-width: 585px) {
+            margin-bottom: 1rem;
+          }
+        }
+        .profile-email {
+          h4 {
+            color: $dark-color1;
+          }
+        }
+      }
+    }
+  }
+  .account-profile {
+    @include white-background;
+    // width: 70%;
+    margin-top: 2rem;
+    padding: 0;
+    .main-sect-heading-left {
+      color: $dark-color1;
+      border-bottom: 1px solid $light-color;
+      padding: 1.5rem;
+    }
+    h3, h5 {
+      font-weight: 500;
+    }
+    &-details {
+      color: #000;
+      padding: 0 1.5rem;
+      h5 {
+        font-size: 1.05rem;
+      }
+      .account-info {
+        padding: 1.5rem 0;
+        form {
+          display: grid;
+          grid-gap: 2rem;
+          padding: 1rem 1.5rem 0 1.5rem;
+          input {
+              width: 100%;
+              color: #000;
+              font-size: $button-lg-font;
+              border: 1px solid #BFBFBF;
+              border-radius: $border-radius;
+              padding: 0.8rem;
+              transition: all 0.2s;
+              outline: none;
+              margin-top: 1rem;
+              // @include border-hover;
+              @include transition(0.2s);
+              &::placeholder {
+                  color: #BFBFBF;
+              }
+          }
+        }
+        &.user-info {
+          border-bottom: 1px solid $light-color;
+          form {
+            @media only screen and (min-width: 585px) {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+        }
+        &.contact-info {
+          form {
+            @media only screen and (min-width: 585px) {
+              grid-template-columns: repeat(3, 1fr);
+              .address {
+                grid-column: 1 / span 3;
+              }
+            }
+          }
+        }
+        &.update-btn {
+          // @include update-changes;
+        }
+      }
+    }
+  }
+}
+/*/---- Main ends ----/*/

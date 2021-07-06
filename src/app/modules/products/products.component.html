@@ -1,0 +1,95 @@
+<section class="product sect">
+  <div class="product-heading">
+    <h2>Products</h2>
+  </div>
+  <div class="product-tabs">
+    <button class="btn acive-tab">Latest</button>
+    <button class="btn">Top rated</button>
+    <button class="btn">Oldest</button>
+  </div>
+  <div class="product-list">
+    <ng-container *ngIf="products?.length > 0; else noItems">
+      <div class="product-item" *ngFor="let i of products">
+        <div
+          class="product-image-area clickable"
+          (click)="showProductDetails(i)"
+          #productImage
+        >
+          <img [src]="i.imageUrl" alt="" class="product-image" />
+          <span class="product-star">
+            <img
+              src="https://res.cloudinary.com/djnqxvljr/image/upload/v1621329402/perlfood/assets/svg/bxs-star_t7a526.svg"
+              alt=""
+            />
+            4.2
+          </span>
+        </div>
+        <div class="product-details">
+          <h3 class="product-name">{{ i.name }}</h3>
+          <p><em>ShopRite</em></p>
+          <div class="product-bottom">
+            <p class="product-price"><span>$</span>{{ i.amount }}</p>
+            <span class="product-cart clickable" title="Add to cart"
+              ><img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1621329402/perlfood/assets/svg/bx-plus_gkkgwd.svg"
+                alt=""
+            /></span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- If the Product List is empty -->
+    <ng-template #noItems>
+      <h3 class="empty-list">Empty list!</h3>
+    </ng-template>
+
+    <!-- Product Details -->
+    <div
+      class="product-more-details sect"
+      [ngClass]="{ 'show-modal': pdModal }"
+    >
+      <div class="product-more-details-container" #productDetails>
+        <!-- <div class="product-details"> -->
+        <div class="product-more-details-image">
+          <img [src]="currentProduct?.imageUrl" alt="" />
+        </div>
+        <div class="product-more-details-content">
+          <span class="product-cat">African</span>
+          <div class="product-name">
+            <h2>{{ currentProduct?.name }}</h2>
+          </div>
+          <div class="product-des">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            voluptatem nam pariatur voluptate perferendis, asperiores
+            aspernatur! Porro similique consequatur, nobis soluta minima, quasi
+            laboriosam hic cupiditate perferendis esse numquam magni.
+          </div>
+          <div class="product-quan-area">
+            <p class="">Quantity</p>
+            <span class="product-quan">
+              <div class="select-quan">
+                <img
+                  src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623058378/perlfood/assets/svg/bx-minus_zciec2.svg"
+                  alt=""
+                  (click)="decrement()"
+                />
+                <span>{{ counter }}</span>
+                <img
+                  src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623069671/perlfood/assets/svg/bx-plus_bfcjue.svg"
+                  alt=""
+                  (click)="increment()"
+                />
+              </div>
+              <span class="product-price">${{ totalPrice }}</span>
+            </span>
+          </div>
+          <div class="product-btn">
+            <button class="btn sec-btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</section>

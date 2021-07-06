@@ -1,0 +1,117 @@
+<div class="main_header">
+  <!-- top_header starts here-->
+  <div class="top_header">
+    <ul class="top_nav">
+      <li><a>Payment</a></li>
+      <li><a>Track Delivery</a></li>
+      <li><a>Services</a></li>
+    </ul>
+
+    <ul class="account_menu" #accountMenu>
+      <a class="btn prim-btn" (click)="openAuthModal()" *ngIf="signinBtn"
+        >Sign in</a
+      >
+      <span class="account_menu-message" *ngIf="welcomeSect">
+        <p class="clickable">
+          Welcome <strong>{{ user?.name }}</strong>
+        </p>
+        <ul class="account_menu-message-dropdown">
+          <li routerLink="account" class="clickable">
+            <img
+              src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620728364/perlfood/assets/svg/bx-user_eqy2va.svg"
+              alt=""
+            />
+            Profile
+          </li>
+          <li class="clickable" (click)="signOut()">
+            <img
+              src="https://res.cloudinary.com/djnqxvljr/image/upload/v1621494732/perlfood/assets/svg/bx-log-out-circle_vxfjsq.svg"
+              alt=""
+            />
+            Sign out
+          </li>
+        </ul>
+      </span>
+    </ul>
+  </div>
+  <!-- top_header ends here-->
+
+  <!-- bottom_header start here-->
+  <div class="bottom_header">
+    <a routerLink="" class="logo">
+      <img
+        src="https://res.cloudinary.com/djnqxvljr/image/upload/v1612447328/perlfood/assets/logo_vluurv.png"
+      />
+    </a>
+    <ul class="bottom_nav" [ngClass]="{ 'open-menu': hamClick }">
+      <li>
+        <a routerLink="continental" routerLinkActive="active"
+          >Continental Dish</a
+        >
+      </li>
+      <li>
+        <a routerLink="african" routerLinkActive="active">African Dish</a>
+      </li>
+      <li>
+        <a routerLink="groceries" routerLinkActive="active">Groceries</a>
+      </li>
+      <li>
+        <a routerLink="drinks" routerLinkActive="active">Drinks</a>
+      </li>
+      <li>
+        <a routerLink="pastries" routerLinkActive="active">Pastries</a>
+      </li>
+    </ul>
+
+    <div class="icon_nav">
+      <ul>
+        <li class="search">
+          <img
+            src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620306133/perlfood/assets/svg/bx-search_rldyei.svg"
+            alt=""
+            class="clickable"
+            title="Search"
+            (click)="openSearchArea()"
+          />
+          <span class="search-input" [ngClass]="{ 'show-search': searchArea }">
+            <input type="text" placeholder="Type something..." />
+            <img
+              src="https://res.cloudinary.com/djnqxvljr/image/upload/v1622622897/perlfood/assets/svg/bx-x_qj4axx.svg"
+              alt=""
+              class="clickable"
+              (click)="searchArea = false"
+            />
+          </span>
+        </li>
+        <!-- <li class="like clickable">
+          <img
+            src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620306133/perlfood/assets/svg/bx-heart_eiy8mp.svg"
+            alt=""
+          />
+        </li> -->
+        <li class="clickable" title="Cart" routerLink="cart">
+          <span class="shopping-cart">
+            <img
+              src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620306133/perlfood/assets/svg/bag-handle-outline_hp2erm.svg"
+              alt=""
+            />
+            <span class="counter">10</span>
+          </span>
+          <span class="amnt">NGN 0.00</span>
+        </li>
+      </ul>
+      <!-- menu icon -->
+      <div class="toggle-menu clickable" (click)="openMenu()">
+        <span class="menu-bar" [ngClass]="{ 'open-menu': hamClick }"></span>
+      </div>
+    </div>
+  </div>
+  <!-- bottom_header ends here-->
+</div>
+
+<!-- Authentication -->
+<div class="auth-container" [ngClass]="{ 'show-modal': authModal }">
+  <div class="app-auth" #auth>
+    <app-authentication></app-authentication>
+  </div>
+</div>

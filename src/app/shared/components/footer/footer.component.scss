@@ -1,0 +1,27 @@
+@import '../../../../assets/scss/mixin';
+@import '../../../../assets/scss/variables';
+
+footer {
+  background-color: $accent-color;
+  color: $white-color;
+  text-align: center;
+  padding: 2rem 0;
+  .logo {
+    img {
+      width: 8rem;
+    }
+  }
+  .footer-social {
+    margin: 1rem 0;
+    .footer-icon {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+      img {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+}

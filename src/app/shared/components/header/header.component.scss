@@ -1,0 +1,287 @@
+@import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixin';
+
+// Main Header
+.main_header {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  .top_header,
+  .bottom_header {
+    @include flexDisplay;
+    width: 100%;
+    background-color: $white-color;
+    border-bottom: 1px solid $grey-color1;
+    padding: 0 2rem;
+    font-size: 15px;
+  }
+  .top_nav,
+  .bottom_nav,
+  .icon_nav {
+    li {
+      display: inline-block;
+      a {
+        color: $dark-color1;
+      }
+    }
+  }
+
+
+  // Top Header
+  .top_header {
+    height: 3.5rem;
+    justify-content: space-between;
+    .top_nav {
+      li {
+        font-size: 0.8rem;
+        padding: 1rem 0;
+        margin-right: 2rem;
+      }
+    }
+    .account_menu {
+      position: relative;
+      &-message {
+        // display: none;
+        strong {
+          color: $primary-color;
+        }
+        &:hover .account_menu-message-dropdown {
+          visibility: visible;
+        }
+        &-dropdown {
+          width: 100%;
+          position: absolute;
+          left: 0;
+          padding: 0.5rem;
+          background-color: $light-color;
+          z-index: 100;
+          visibility: hidden;
+          transition: visibility 0.2s ease-in-out;
+          li {
+            @include flexDisplay;
+            &:not(:last-child) {
+              margin-bottom: 0.5rem;
+            }
+            img {
+              width: 20px;
+              height: 20px;
+              margin-right: 0.5rem;
+            }
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+
+    // Small Screen size
+    @media only screen and (max-width: 885px) {
+      .account_menu .btn {
+        padding: .5rem .5rem;
+      }
+    }
+  }
+
+  // Bottom Header
+  .bottom_header {
+    position: relative;
+    .logo,
+    .bottom_nav,
+    .icon_nav {
+      height: 3.5rem;
+      @include flexDisplay;
+    }
+
+    .logo {
+      flex-basis: 10%;
+      border-right: 1px solid $grey-color1;
+      padding-right: 1rem;
+      img {
+        width: 8rem;
+      }
+    }
+
+    .bottom_nav {
+      flex-basis: 65%;
+      li {
+        margin: 0 1.5rem;
+        @include flexDisplay;
+        a {
+          &:hover,
+          &.active {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    .icon_nav {
+      flex-basis: 25%;
+      ul {
+        width: 100%;
+        height: 100%;
+        @include flexDisplay;
+        justify-content: flex-end;
+        li {
+          @include flexDisplay;
+          height: 100%;
+          padding: 0 0.5rem;
+          border-left: 1px solid $grey-color1;
+          img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+          }
+          .shopping-cart {
+            position: relative;
+            margin-right: 1rem;
+            .counter {
+              position: absolute;
+              bottom: -12px;
+              right: -8px;
+              background: $primary-color-hover;
+              width: 25px;
+              height: 25px;
+              line-height: 21px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 500;
+              border-radius: 50%;
+              border: 2px solid $white-color;
+              transform: scale(0.8);
+            }
+          }
+        }
+      }
+
+      // Search Area
+    .search-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: $white-color;
+      border: 2px solid $light-color;
+      @include flexDisplay;
+      @include transition(0.3s);
+      z-index: 100;
+      visibility: hidden;
+      opacity: 0;
+      &.show-search {
+        visibility: visible;
+        opacity: 1;
+      }
+      input {
+        width: 100%;
+        height: 3.5rem;
+        font-size: 1.2rem;
+        border: none;
+        outline: none;
+        padding: 0 1rem;
+
+      }
+    }
+    }
+
+    .toggle-menu {
+      display: none;
+      margin-bottom: 10px;
+      margin-left: 1rem;
+      .menu-bar {
+        position: relative;
+        width: 2rem;
+        height: 2px;
+        background-color: $dark-color1;
+        display: inline-block;
+        @include transition(0.3s);
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: inherit;
+          height: inherit;
+          background-color: $dark-color1 !important;
+          @include transition(0.3s);
+        }
+        &::before {
+          top: -.6rem;
+        }
+        &::after {
+          top: .6rem;
+        }
+        &.open-menu {
+          background-color: transparent;
+          &::before {
+            top: 0 !important;
+            transform: rotate(135deg);
+          }
+          &::after {
+            top: 0 !important;
+            transform: rotate(-135deg);
+            width: inherit !important;
+          }
+        }
+      }
+    }
+
+    // Small Screen size
+    @media only screen and (max-width: 885px) {
+      justify-content: space-between;
+      .bottom_nav {
+        display: none;
+      }
+      .toggle-menu {
+        display: block;
+      }
+      .bottom_nav {
+        position: fixed;
+        top: 7rem;
+        right: -100%;
+        display: block;
+        width: 80%;
+        height: 100%;
+        padding: 2rem;
+        background-color: $accent-color;
+        @include transition(0.2s);
+        li {
+          display: block;
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+          a {
+            color: $white-color;
+            font-size: 18px;
+          }
+        }
+        &.open-menu {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+// Auth Container
+.auth-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0,0,0,.32);
+  z-index: 200;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  &.show-modal {
+    opacity: 1;
+    visibility: visible;
+  }
+  .app-auth {
+    margin: auto;
+  }
+}
+

@@ -1,0 +1,84 @@
+<section class="cart sect sect-width">
+  <div class="cart-heading">
+    <h2>Cart</h2>
+  </div>
+  <div class="cart-body">
+    <div class="cart-body-list">
+      <ul class="cart-body-list-heading uppercase">
+        <li class="col-1">Product</li>
+        <li>Price</li>
+        <li>Quantity</li>
+        <li>Total</li>
+      </ul>
+      <div class="cart-body-list-content">
+        <ul>
+          <li class="cart-item">
+            <span class="cart-name col-1">
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1612184067/egusisemo_aurx1o.png"
+                alt="image"
+              />
+              <span>
+                <p>Fried Rice</p>
+              </span>
+            </span>
+            <p class="cart-price">$40</p>
+            <span class="select-quan">
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623058378/perlfood/assets/svg/bx-minus_zciec2.svg"
+                alt=""
+                (click)="decrement()"
+                class="decrease"
+              />
+              <span>{{ counter }}</span>
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623069671/perlfood/assets/svg/bx-plus_bfcjue.svg"
+                alt=""
+                (click)="increment()"
+              />
+            </span>
+            <p class="cart-total">$40</p>
+          </li>
+          <li class="cart-item">
+            <span class="cart-name col-1">
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1612184067/egusisemo_aurx1o.png"
+                alt="image"
+              />
+              <span>
+                <p>Fried Rice</p>
+              </span>
+            </span>
+            <p class="cart-price">$40</p>
+            <span class="select-quan">
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623058378/perlfood/assets/svg/bx-minus_zciec2.svg"
+                alt=""
+                (click)="decrement()"
+                class="decrease"
+              />
+              <span><input type="text" [value]="counter" /></span>
+              <img
+                src="https://res.cloudinary.com/djnqxvljr/image/upload/v1623069671/perlfood/assets/svg/bx-plus_bfcjue.svg"
+                alt=""
+                (click)="increment()"
+              />
+            </span>
+            <p class="cart-total">$40</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <aside class="cart-body-aside">
+      <h3>Order Summary</h3>
+      <p>Item(s) Total</p>
+      <div class="cart-body-aside-footer">
+        <span>
+          <p>Total Price</p>
+          <h4>$40</h4>
+        </span>
+        <button class="btn prim-btn">Checkout</button>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<!-- Sign In -->
+<div class="auth" id="signinModal">
+  <span class="auth-image">
+    <img
+      src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620728139/perlfood/assets/signin-image_o66gno.jpg"
+      alt="image"
+    />
+  </span>
+  <div class="auth-form">
+    <!-- Signin Form -->
+    <app-signin></app-signin>
+
+    <p class="auth-form-extra clickable" (click)="openSignupModal()">
+      Don't have an account? Create!
+    </p>
+  </div>
+</div>
+
+<!-- Sign Up  -->
+<div class="auth" id="signupModal">
+  <span class="auth-image">
+    <img
+      src="https://res.cloudinary.com/djnqxvljr/image/upload/v1620728140/perlfood/assets/signup-image_riy2gb.jpg"
+      alt="image"
+    />
+  </span>
+  <div class="auth-form">
+    <!-- Signup Form -->
+    <app-signup></app-signup>
+
+    <p class="auth-form-extra clickable" (click)="openSigninModal()">
+      Have an account? Login!
+    </p>
+  </div>
+</div>
